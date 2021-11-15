@@ -1,4 +1,4 @@
-# DBLE监控告警组建
+# DBLE监控告警组件
 
 ## 实现原理
 
@@ -66,8 +66,23 @@ component_id=DBLE-FOR-10.0.142.11
 web_hook.type=URL
 web_hook.hook_url=http://xxxxxxxx/api/v1/robot/msg/send
 web_hook.hook_params=robot_id=xxxx-xxxx-xxxx-xxxxxx
-web_hook.db_config.dbGroup1.principal=yongwang.lu,chengjian.meng
-web_hook.db_config.dbGroup1..hook_params=robot_id=xxx-xxx-xxxx-xxxx-xxxx
+web_hook.db_config.dbGroup1.principal=150xxxxxx,132xxxxxx
+web_hook.db_config.dbGroup1.hook_params=robot_id=xxx-xxx-xxxx-xxxx-xxxx
 
+```
+
+自定义webHook 请求示例 web hook接口自行实现
+``` bash
+curl '{hook_url}?{hook_params}' \
+   -H 'Content-Type: application/json' \
+   -d '
+   {
+        "msgtype": "markdown",
+        "markdown": {
+            "content": "<font color='warning'>DBLE告警消息</font>:\n >告警代码:DBLE_HEARTBEAT_FAIL\n >告警解释:心跳后端节点失败\n >告警级别:WARN\n >告警节点:xxx\n >告警时间:2020-10-15 21:48:11\n >告警详情:|dbInstance:dbGroup1-instanceM1|"
+        },
+        # 手机号方便@等
+        "mobile_list": ["150xxxxxx","132xxxxxx"]
+   }'
 ```
 
