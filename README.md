@@ -1,5 +1,7 @@
 # DBLE监控告警组件
 
+## 什么是[DBLE](https://github.com/actiontech/dble).
+
 ## 实现原理
 
 参考文档: https://actiontech.github.io/dble-docs-cn/1.config_file/1.11_customized_alert.html
@@ -27,7 +29,7 @@ vim $DBLE_HOME/config/dble_alert.properties
 ```properties
 # 固定写法
 alert=io.github.luyongwang.dble.WebHookAlarmAlert
-# 机器名称
+# 告警中的节点名称
 component_id=DBLE-FOR-10.0.142.11
 # 企业微信告警 (必须)
 web_hook.type=WORK_WECHAT
@@ -45,7 +47,7 @@ web_hook.db_config.dbGroup1.robot_id=xxxx-yyyy-zzzz-xxxx-yyyy
 ```properties
 # 固定写法
 alert=io.github.luyongwang.dble.WebHookAlarmAlert
-# 机器名称
+# 告警中的节点名称
 component_id=DBLE-FOR-10.0.142.11
 # 钉钉告警
 web_hook.type=DING_TALK
@@ -61,7 +63,7 @@ web_hook.db_config.dbGroup1.robot_id=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```properties
 # 入口
 alert=io.github.luyongwang.dble.WebHookAlarmAlert
-# DBLE配置
+# 告警中的节点名称
 component_id=DBLE-FOR-10.0.142.11
 # WEBHOOK配置
 web_hook.type=FEI_SHU
@@ -80,7 +82,7 @@ web_hook.db_config.dbGroup1.robot_id=xxxx-xxxxx-xxxx-xxxx-xxxx
 ```properties
 # 入口
 alert=io.github.luyongwang.dble.WebHookAlarmAlert
-# DBLE配置
+# 告警中的节点名称
 component_id=DBLE-FOR-10.0.142.11
 # WEBHOOK配置
 web_hook.type=URL

@@ -72,7 +72,7 @@ public class FeiShuWebHookAlarmSender implements IAlarmSender {
             builder.append("[{\"tag\":\"text\",\"text\":\"告警消息: \"},{\"tag\":\"text\",\"text\":\"").append(clusterAlertBean.getDesc()).append("\"}],");
         }
         builder.append("[{\"tag\":\"text\",\"text\":\"告警级别: \"},{\"tag\":\"text\",\"text\":\"").append(clusterAlertBean.getLevel()).append("\"}],");
-        builder.append("[{\"tag\":\"text\",\"text\":\"告警节点: \"},{\"tag\":\"text\",\"text\":\"").append(clusterAlertBean.getServerId()).append("\"}],");
+        builder.append("[{\"tag\":\"text\",\"text\":\"告警节点: \"},{\"tag\":\"text\",\"text\":\"").append(clusterAlertBean.getSourceComponentId()).append("\"}],");
         builder.append("[{\"tag\":\"text\",\"text\":\"告警时间: \"},{\"tag\":\"text\",\"text\":\"").append((new DateTime(clusterAlertBean.getTimestampUnix())).toString("yyyy-MM-dd HH:mm:ss")).append("\"}],");
         builder.append("[{\"tag\":\"text\",\"text\":\"告警代码: \"},{\"tag\":\"text\",\"text\":\"").append(clusterAlertBean.getCode()).append("\"}],");
 

@@ -80,7 +80,7 @@ public class DingTalkWebHookAlarmSender implements IAlarmSender {
             sb.append(" >告警消息:").append(clusterAlertBean.getDesc()).append("\n");
         }
         sb.append(" >告警级别:").append(clusterAlertBean.getLevel()).append("\n");
-        sb.append(" >告警节点:").append(clusterAlertBean.getServerId()).append("\n");
+        sb.append(" >告警节点:").append(clusterAlertBean.getSourceComponentId()).append("\n");
         sb.append(" >告警时间:").append((new DateTime(clusterAlertBean.getTimestampUnix())).toString("yyyy-MM-dd HH:mm:ss")).append("\n");
         StringBuilder detail = new StringBuilder("|");
         if (!CollectionUtil.isEmpty(clusterAlertBean.getLabels())) {
