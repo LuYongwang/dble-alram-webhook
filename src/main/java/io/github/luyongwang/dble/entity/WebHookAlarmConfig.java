@@ -45,6 +45,7 @@ public class WebHookAlarmConfig {
         switch (type) {
             case WORK_WECHAT:
             case DING_TALK:
+            case FEI_SHU:
                 if (StringUtils.isEmpty(webHook.getRobotId())) {
                     return false;
                 }
@@ -100,6 +101,7 @@ public class WebHookAlarmConfig {
          */
         WORK_WECHAT,
         DING_TALK,
+        FEI_SHU,
         URL;
     }
 

@@ -6,6 +6,7 @@ import io.github.luyongwang.dble.config.AlarmConfiguration;
 import io.github.luyongwang.dble.entity.WebHookAlarmConfig;
 import io.github.luyongwang.dble.sender.IAlarmSender;
 import io.github.luyongwang.dble.sender.impl.DingTalkWebHookAlarmSender;
+import io.github.luyongwang.dble.sender.impl.FeiShuWebHookAlarmSender;
 import io.github.luyongwang.dble.sender.impl.WebUrlHookAlarmSender;
 import io.github.luyongwang.dble.sender.impl.WorkWeChatHookAlarmSender;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +38,9 @@ public class WebHookAlarmAlert implements com.actiontech.dble.alarm.Alert {
                 case DING_TALK:
                     alarmSender = new DingTalkWebHookAlarmSender(webHookConfig.getRobotId(), webHookConfig.getDbConfig());
                     break;
+                case FEI_SHU:
+                    alarmSender = new FeiShuWebHookAlarmSender(webHookConfig.getRobotId(), webHookConfig.getDbConfig());
+                    break;
                 case URL:
                     alarmSender = new WebUrlHookAlarmSender(webHookConfig.getHookUrl(), webHookConfig.getHookParams(), webHookConfig.getDbConfig());
                     break;
@@ -66,7 +70,7 @@ public class WebHookAlarmAlert implements com.actiontech.dble.alarm.Alert {
                 setSourceComponentId(webHookAlarmConfig.getComponentId()).
                 setServerId(webHookAlarmConfig.getServerId()).
                 setTimestampUnix(System.currentTimeMillis());
-        return alarmSender.sendAlert(false, clusterAlertBean);
+        return alarmSender.sendAlert(true, clusterAlertBean);
     }
 
     @Override

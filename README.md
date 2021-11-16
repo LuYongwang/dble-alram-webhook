@@ -14,13 +14,15 @@
 
 ### 配置
 
-1、配置文件配置
+#### 1、配置文件配置
 
 ```shell
 vim $DBLE_HOME/config/dble_alert.properties
 ```
 
-配置文件详解
+#### 2、配置文件详解与案例
+
+##### 企业微信
 
 ```properties
 # 固定写法
@@ -32,13 +34,13 @@ web_hook.type=WORK_WECHAT
 # 企业微信 全局默认机器人ID (必须)
 web_hook.robot_id=xxxx-xxxx-xxxx-xxxx-xxxxxx
 # db负责人以及告警配置 dbGroup1 为 db.xml 中的 dbgroup节点name principal是负责人告警中会@ ,多个隔开
-web_hook.db_config.dbGroup1.principal=yongwang.lu,chengjian.meng
+web_hook.db_config.dbGroup1.principal=xxxxx,xxxxx
 # robot_id 在一些场景下 想把告警单独分发到某个机器人 可以设置 不设置默认为 全局默认机器人ID
 web_hook.db_config.dbGroup1.robot_id=xxxx-yyyy-zzzz-xxxx-yyyy
 
 ```
 
-钉钉配置
+##### 钉钉配置
 
 ```properties
 # 固定写法
@@ -49,13 +51,31 @@ component_id=DBLE-FOR-10.0.142.11
 web_hook.type=DING_TALK
 # 钉钉机器人ID
 web_hook.robot_id=xxxxxxxxxxx
+# 这里输入手机号
 web_hook.db_config.dbGroup1.principal=150xxxxxxxx,132xxxxxxxx
 web_hook.db_config.dbGroup1.robot_id=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
+##### 飞书配置
+
+```properties
+# 入口
+alert=io.github.luyongwang.dble.WebHookAlarmAlert
+# DBLE配置
+component_id=DBLE-FOR-10.0.142.11
+# WEBHOOK配置
+web_hook.type=FEI_SHU
+# 飞书全局机器人ID
+web_hook.robot_id=xxxx-xxxx-xxxx-xxxx-xxxx
+# db负责人以及告警配置 dbGroup1 为 db.xml 中的 dbgroup节点name principal是负责人告警中会@ ,多个隔开 这里输入userid
+web_hook.db_config.dbGroup1.principal=xxxxxx,xxxxx
+web_hook.db_config.dbGroup1.robot_id=xxxx-xxxxx-xxxx-xxxx-xxxx
+
+```
 
 
-自定义WebHook配置
+
+##### 自定义WebHook配置
 
 ```properties
 # 入口
