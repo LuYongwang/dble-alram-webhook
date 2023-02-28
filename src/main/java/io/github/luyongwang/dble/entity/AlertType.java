@@ -36,7 +36,12 @@ public enum AlertType {
     DBLE_GET_TABLE_META_FAIL("DBLE_GET_TABLE_META_FAIL", "获取表格的创建语句失败"),
     DBLE_TEST_CONN_FAIL("DBLE_TEST_CONN_FAIL", "测试后端连接可达性失败"),
     DBLE_HEARTBEAT_FAIL("DBLE_HEARTBEAT_FAIL", "心跳后端节点失败"),
-    DBLE_SHARDING_NODE_LACK("DBLE_SHARDING_NODE_LACK", "缺少可用的shardingNode节点");
+    DBLE_SHARDING_NODE_LACK("DBLE_SHARDING_NODE_LACK", "缺少可用的shardingNode节点"),
+    DBLE_XA_SUSPECTED_RESIDUE("DBLE_XA_SUSPECTED_RESIDUE", "疑似Xaid残留"),
+    DBLE_DB_SLAVE_INSTANCE_DELAY("DBLE_DB_SLAVE_INSTANCE_DELAY", "主从延迟超高delayThreshold的值"),
+    DBLE_XA_BACKGROUND_RETRY_STOP("DBLE_XA_BACKGROUND_RETRY_STOP", "XA重试机制中如果配置了xaRetryCount，重试次数到达到该值时，重试停止"),
+    SLOW_QUERY_QUEUE_POLICY_ABORT("SLOW_QUERY_QUEUE_POLICY_ABORT", "因队列满了而丢弃慢日志记录"),
+    SLOW_QUERY_QUEUE_POLICY_WAIT("SLOW_QUERY_QUEUE_POLICY_WAIT", "慢查询队列满了，但触发了阻塞机制，最终慢日志没有丢失，落盘成功");
 
     private String code;
 
